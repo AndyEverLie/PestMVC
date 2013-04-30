@@ -9,3 +9,4 @@ PestMVC
     $ composer.phar Install
 
 
+further details and demo will come out soon.
