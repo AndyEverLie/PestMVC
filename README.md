@@ -1,4 +1,11 @@
 PestMVC
 =======
 
-PestMVC is yet another easy-use Restful PHP MVC framework.
+**PestMVC** is yet another easy using **P**HP R**est**ful **MVC** framework.
+
+##Installation
+-----
+    $ git clone https://github.com/andyeverlie/PestMVC.git
+    $ composer.phar Install
+
+

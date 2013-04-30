@@ -1,0 +1,11 @@
+vendor/ckeditor/
+vendor/composer/
+vendor/php-activerecord/
+vendor/fzaninotto/
+vendor/slim/
+
+api/
+test/
+app/Controller/*.php
+app/Model/*.php
+app/View/admin/
