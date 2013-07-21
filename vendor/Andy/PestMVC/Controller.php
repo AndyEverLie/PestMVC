@@ -11,8 +11,10 @@ class Controller {
 		$this->_auth = new \Utils\Auth();
 	}
 
-	public function render_front($name, $param, $template = 'default') {
-		extract ( $param );
+	public function render_front($name, $param = null, $template = 'default') {
+		if (isset($param)) {
+			extract ( $param );
+		}
 		require_once VIEW_PATH_FRONT . $name . '.php';
 	}
 	

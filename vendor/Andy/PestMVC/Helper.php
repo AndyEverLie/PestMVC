@@ -12,9 +12,13 @@ class Helper {
 
 	public static function get_route_key($route) {
 		if('' == $route->prefix ){
-			return $route->rule;
+			return strtolower($route->rule);
 		}else {
-			return '/' . $route->prefix . $route->rule;
+			return '/' . strtolower($route->prefix . $route->rule);
 		}
+	}
+
+	public static function url($resource, $param = array()) {
+		return '/' . $resource;
 	}
 }

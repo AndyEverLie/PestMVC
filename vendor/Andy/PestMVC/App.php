@@ -78,7 +78,6 @@ class App {
 				'controller' => 'main',
 				'action' => 'index'
 		) );
-		var_dump($_SERVER ['REQUEST_URI'] . '######' . $_SERVER ['REQUEST_METHOD']);
 		$this->router->dispatch ( $_SERVER ['REQUEST_URI'], $_SERVER ['REQUEST_METHOD'] );
 		// 		echo '<pre>';
 		// 		print_r($this->router);
