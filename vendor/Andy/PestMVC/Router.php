@@ -23,9 +23,10 @@ class Router {
 	
 	public function addRoute($route) {
 		$this->validate ( $route );
-		
+
 		// for example GET@/users/:id/edit
-		$route_key = $route->http_method . '@' . $route->rule;
+		$route_key = $route->http_method . '@' . Helper::get_route_key($route);
+// 		$route_key =  Helper::get_route_key($route);
 		
 		if (! isset ( $this->routes [$route_key] )) {
 			$this->routes [$route_key] = $route;
@@ -55,12 +56,14 @@ class Router {
 	 * @throws \PestMVC\CannotFoundException
 	 */
 	public function dispatch($uri, $http_method) {
+// 		var_dump($uri);
+// 		var_dump($http_method);
 		foreach ( $this->routes as $route ) {
 			// update $rule from /xxx/:xx to /xxx/([a-zA-Z0-9_\+\-%]+)/?
 			$url_regex = preg_replace_callback ( '@:[\w]+@', array (
 					$this,
 					'regex_url' 
-			), $route->rule );
+			), Helper::get_route_key($route) );	//$route->rule
 			$url_regex .= '/?';
 			
 			$p_values = array ();
@@ -134,5 +137,5 @@ class Router {
 		// TODO
 		throw new \PestMVC\CannotFoundException ( 'Pattern can not found. ' . $rule );
 	}
-
+	
 }
